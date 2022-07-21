@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- //Función actualizar -->
+<script type="text/javascript">
+  function actualizar(){location.reload(true);}
+//Función para actualizar cada 4 segundos(4000 milisegundos)
+  setInterval("actualizar()",4000);
+</script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +16,15 @@
     
     <div>
         <div>
-            <button class="btn" id="boton">json</button>
+            <!-- <button class="btn" id="boton">json</button> -->
 
             <table>
                 <thead>
                     <tr>
-                        <th>titulo</th>
-                        <th>artista</th>
+                        <th>humedad</th>
+                        <th>pir</th>
+                        <th>boton</th>
+                        <th>led</th>
                     </tr>
                 </thead>
                 <tbody id="res">

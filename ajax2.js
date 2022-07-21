@@ -1,30 +1,63 @@
-// console.log("correcto")
 
-document.querySelector("#boton").addEventListener('click', traerDatos);
+// console.log("correcto en funcion");
 
-function traerDatos() {
-  // console.log("correcto en funcion");
+const xhttp = new XMLHttpRequest();
 
-  const xhttp = new XMLHttpRequest();
+xhttp.open("GET", "./variables.json", true);
 
-  xhttp.open("GET", "./variables.json", true);
+xhttp.send();
 
-  xhttp.send();
+xhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    // console.log(this.responseText);
+    let datos = [JSON.parse(this.responseText)];
+  //   console.log(datos);
+    let res = document.querySelector("#res");
+  //   res.innerHTML = "";
 
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      // console.log(this.responseText);
-      let datos = [JSON.parse(this.responseText)];
-    //   console.log(datos);
-      let res = document.querySelector("#res");
-    //   res.innerHTML = "";
-
-      for (let item of datos) {
-        console.log(item.sensores);
-        res.innerHTML += `
-            <p>${item.sensores.humedad}</p>
-        `
-      }
+    for (let item of datos) {
+      console.log(item.sensores);
+      res.innerHTML += `
+          <tr>
+            <td>${item.sensores.humedad}</dt>
+            <td>${item.sensores.pir}</dt>
+            <td>${item.actuadores.boton}</dt>
+          </tr>
+      `
     }
-  };
-}
+  }
+};
+
+
+
+
+// MOSTRAR RESULTADO PERO CON BOTON
+
+// document.querySelector("#boton").addEventListener('click', traerDatos);
+
+// function traerDatos() {
+//   // console.log("correcto en funcion");
+
+//   const xhttp = new XMLHttpRequest();
+
+//   xhttp.open("GET", "./variables.json", true);
+
+//   xhttp.send();
+
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       // console.log(this.responseText);
+//       let datos = [JSON.parse(this.responseText)];
+//     //   console.log(datos);
+//       let res = document.querySelector("#res");
+//     //   res.innerHTML = "";
+
+//       for (let item of datos) {
+//         console.log(item.sensores);
+//         res.innerHTML += `
+//             <p>${item.sensores.humedad}</p>
+//         `
+//       }
+//     }
+//   };
+// }

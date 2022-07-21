@@ -1,0 +1,12 @@
+{
+  "sensores": {
+    "humedad": 0.79,
+    "pir": 0.35
+  },
+  "actuadores": {
+    "boton": false
+  },
+  "si": {
+    "cd": false
+  }
+}
